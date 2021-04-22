@@ -1,0 +1,68 @@
+<div class="login">
+  <h2 class="login-header">NUEVO CASO:</h2>
+  <form [formGroup]="copiaSeguridadForm" class="login-container" (ngSubmit)="modificarResultado()">
+
+
+    Direccion: <input type="string" placeholder="Direccion" formControlName="direccion" class="form-control"/>*
+    <ng-container
+      *ngIf="!formControls.direccion.valid && formControls.direccion.touched ">
+      <p *ngIf="formControls.direccion.errors.required">
+        Este Campo es Obligatorio
+      </p>
+    </ng-container>
+
+
+  <p>
+    Usuario: <input type="string" placeholder=" Usuario" formControlName="usuario" class="form-control"/>*
+    <ng-container
+      *ngIf="!formControls.usuario.valid && formControls.usuario.touched">
+      <p *ngIf="formControls.usuario.errors.required">
+        Este Campo es Obligatorio
+      </p>
+    </ng-container>
+  </p>
+
+  <p>
+    Fecha: <input type="string" placeholder="DD/MM/YYYY" formControlName="fecha" class="form-control"/>*
+    <ng-container
+      *ngIf="!formControls.fecha.valid && formControls.fecha.touched">
+      <p *ngIf="formControls.fecha.errors.required">
+        Este Campo es Obligatorio
+      </p>
+
+      <p *ngIf="formControls.fecha.errors.pattern">
+        Este Campo no tiene formato correcto DD/MM/YYYY
+      </p>
+    </ng-container>
+  </p>
+
+  <p>
+    Error: <input type="string" placeholder="Error" formControlName="error" class="form-control"/>
+    <ng-container
+      *ngIf="!formControls.error.valid && formControls.error.touched">
+      <p *ngIf="formControls.error.errors.required">
+        Este Campo es Obligatorio
+      </p>
+    </ng-container>
+  </p>
+
+  <p>
+  Estado <select formControlName="estado">
+      <option value="OK" >OK</option>
+      <option value="KO" >KO</option>
+    </select>*
+    <ng-container
+      *ngIf="!formControls.estado.valid && formControls.estado.touched">
+      <p *ngIf="formControls.estado.errors.required">
+        Este Campo es Obligatorio
+      </p>
+    </ng-container>
+  </p>
+
+    <p>
+      <input type="submit" value="Modificar" [disabled]="copiaSeguridadForm.invalid" />
+      <input type="submit" value="Atrás" (click) = "atras()" />
+    </p>
+  </form>
+</div>
+

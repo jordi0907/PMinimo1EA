@@ -1,0 +1,36 @@
+
+     <div class="container">
+      <table class="table table-striped">
+        <thead >
+          <tr>
+            <th>fecha</th>
+            <th>direccion</th>
+            <th>estado</th>
+            <th>usuario</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let copia of copias">
+            <td>{{copia.fecha}}</td>
+            <td>{{copia.direccion}}</td>
+            <td>{{copia.estado}}</td>
+            <td>{{copia.usuario}}</td>
+            <td>
+              <button class="btn btn-secondary btn-sm" (click) = "modificar(copia._id)">
+                <i class="material-icons">edit </i>
+              </button>
+              <button type="button" class="btn btn-danger  btn-sm" (click) = "delete(copia._id)">
+                <i class="material-icons">delete</i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <!--   <div class="row">
+      <div class="col-md-4"></div>
+    <div  class="example-button-row col-md-8">
+      <button (click)="nuevoResultado()" class="btn btn-primary" >Añadir Nuevo Resultado Clínico</button>
+    </div>
+  </div> -->
